@@ -1122,6 +1122,8 @@ char *getBNCHFromIM4M(const char* im4m, size_t *nonceSize){
     bnchSize = asn1Len(nonceOctet).dataLen;
     // iPhone 7 and above use 32 byte nonce
     if (bnchSize != (asn1ElementsInObject(certs) == 1 ? 32 : 20)) {
+        //todo remove this
+        printf("[IMG4TOOL] File is invalid");
         reterror("BNCH size incorrect\n");
     }
     if (nonceSize) *nonceSize = bnchSize;
